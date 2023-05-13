@@ -24,6 +24,22 @@ AllAboutPDF is built using the Python programming language 🐍 and the Streamli
 
 When a user uploads a PDF file to the app, the app performs the requested task (e.g. merging PDFs), and then generates a new PDF file that the user can download.
 
+## Installation ⚙️
+
+To install the repository, please clone this repository and install the requirements:
+
+```
+pip install -r requirements.txt
+```
+
+## Usage 🏃
+
+To use the application, run the `main.py` file with the streamlit CLI (after having installed streamlit): 
+
+```
+streamlit run app.py
+```
+
 ## Motivation 💡
 
 The motivation behind AllAboutPDF was to create a simple, user-friendly tool for working with PDF files. While there are many PDF-related tools available online, many of them are complex and difficult to use. AllAboutPDF aims to provide an easy-to-use alternative that can be used by anyone, regardless of technical expertise and make process of data extraction a cake work.
