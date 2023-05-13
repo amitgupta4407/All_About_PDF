@@ -91,3 +91,9 @@ We have several future plans for AllAboutPDF, including:
 ![image](https://github.com/amitgupta4407/All_About_PDF/assets/73437027/17dbbf53-e621-41ae-85d0-47a329d79aa1)
 -------------
 
+## Links
+- 👉 Streamlit: https://streamlit.io/
+- 👉 Langchain docs: https://python.langchain.com/en/latest/index.html
+- 👉 How🤔 ChatPDF works: https://bennycheung.github.io/ask-a-book-questions-with-langchain-openai
+
+![ Ask_Book_Questions_Workflow_Ext](https://github.com/amitgupta4407/All_About_PDF/assets/73437027/6e670334-d929-42be-8681-2ce803cf8b1a)
