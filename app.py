@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 from PyPDF2 import PdfReader, PdfWriter 
 from langchain.text_splitter import CharacterTextSplitter
@@ -97,6 +98,9 @@ def main():
                         file_name=f"{pdf.name.split('.')[0]}_encrypted.pdf",
                         mime="application/octet-stream",
                     )
+                    try:
+                        os.remove(f"{pdf.name.split('.')[0]}_encrypted.pdf")
+                    except: pass
         elif option == "Extract Raw Text📄":
             st.write(text)
         elif option == "Extract Links🔗":
