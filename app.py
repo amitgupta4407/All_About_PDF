@@ -24,24 +24,31 @@ def ChatPDF(text):
     chunks = text_splitter.split_text(text)
     # st.write(chunks)
     # creating embeddings
-    open_ai_api_key = st.text_input("OPENAI API KEY", type = "password")
-    if open_ai_api_key:
-        embeddings = OpenAIEmbeddings(openai_api_key=open_ai_api_key)
-        # st.write(embeddings)
+
+    OPENAI_API_KEY = st.text_input("OPENAI API KEY", type = "password")
+    if OPENAI_API_KEY:
+        embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
+        st.write("embedding created")
+        st.write(embeddings)
         knowledge_base = FAISS.from_texts(chunks, embeddings)
-
+        st.write("knowledge_base created ")
         #show user input
-        user_question = st.text_input("Ask a question about your PDF?")
-        if user_question:
-            docs = knowledge_base.similarity_search(user_question)
-            # st.write(docs)
 
-            llm = OpenAI()
-            chain = load_qa_chain(llm, chain_type="stuff")
-            with get_openai_callback() as cb:
-                response = chain.run(input_documents=docs, question=user_question)
-                print(cb)
-            st.write(response)
+        def ask_question():
+            user_question = st.text_input("Ask a question about your PDF?")
+            if user_question:
+                docs = knowledge_base.similarity_search(user_question)
+                # st.write(docs)
+
+                llm = OpenAI()
+                chain = load_qa_chain(llm, chain_type="stuff")
+                with get_openai_callback() as cb:
+                    response = chain.run(input_documents=docs, question=user_question)
+                    print(cb)
+                st.write(response)
+                ask_question()
+                
+        ask_question()
 
 def main():
     st.set_page_config(page_title="Ask ur PDF",
