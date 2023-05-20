@@ -8,11 +8,9 @@ from langchain.chains.question_answering import load_qa_chain
 from langchain.llms import OpenAI
 from langchain.callbacks import get_openai_callback
 
-
 def ChatPDF(text):
-    
     # st.write(text)
-
+    
     #split into chunks
     text_splitter = CharacterTextSplitter(
         separator="\n",
@@ -28,25 +26,25 @@ def ChatPDF(text):
     OPENAI_API_KEY = st.text_input("OPENAI API KEY", type = "password")
     if OPENAI_API_KEY:
         embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
-        st.write("embedding created")
-        st.write(embeddings)
+        # st.write("Embedding Created")
+        # st.write(embeddings)
         knowledge_base = FAISS.from_texts(chunks, embeddings)
-        st.write("knowledge_base created ")
+        st.write("Knowledge Base created ")
         #show user input
 
-        def ask_question():
-            user_question = st.text_input("Ask a question about your PDF?")
+        def ask_question(i=0):
+            user_question = st.text_input("Ask a question about your PDF?",key = i)
             if user_question:
                 docs = knowledge_base.similarity_search(user_question)
                 # st.write(docs)
 
-                llm = OpenAI()
+                llm = OpenAI(openai_api_key=OPENAI_API_KEY)
                 chain = load_qa_chain(llm, chain_type="stuff")
                 with get_openai_callback() as cb:
                     response = chain.run(input_documents=docs, question=user_question)
                     print(cb)
                 st.write(response)
-                ask_question()
+                ask_question(i+1)
                 
         ask_question()
 
