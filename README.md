@@ -8,8 +8,8 @@ One of the unique features that sets AllAboutPDF apart from other online PDF app
 
 The live version of the app is hosted on Streamlit Sharing and can be accessed at the following URL:
 
-https://amitgupta4407-all-about-pdf-app-dmn92l.streamlit.app/
-
+- Main application:  https://amitgupta4407-all-about-pdf-app-dmn92l.streamlit.app/
+- Test feature: https://allaboutpdf-multiple-filequery-feature.streamlit.app/
 ## Features 🎉
 
 - Extract text from a PDF file 💬
@@ -17,6 +17,7 @@ https://amitgupta4407-all-about-pdf-app-dmn92l.streamlit.app/
 - Extract metadata from a PDF file 📝
 - Encrypt a PDF file with a password 🔒
 - _**Chat with a PDF file using OpenAI and Langchain**_ 🤖
+- _**Chat with multiple textual file(pdf, txt, doc, excel, csv, sql)**_  (https://allaboutpdf-multiple-filequery-feature.streamlit.app/)
 
 ## Overview 📋
 
@@ -34,10 +35,15 @@ pip install -r requirements.txt
 
 ## Usage 🏃
 
-To use the application, run the `main.py` file with the streamlit CLI (after having installed streamlit): 
+- To use the main application, run the `main.py` file with the streamlit CLI (after having installed streamlit): 
 
 ```
 streamlit run app.py
+```
+- To use the test feature application, run the `FileQueryHub.py` file with the streamlit CLI (after having installed streamlit): 
+
+```
+streamlit run FileQueryHub.py
 ```
 
 ## Motivation 💡
