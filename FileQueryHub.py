@@ -39,7 +39,7 @@ def process_multiple_files(files):
     return combined_text
 
 def main():
-    st.set_page_config(page_title="FileQueryHub", page_icon="📄")
+    st.set_page_config(page_title="Demo for Raj", page_icon="📄")
     st.header("FileQueryHub 📂🤖")
 
     files = st.file_uploader(
